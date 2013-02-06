@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Longest Common Subsequence</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.aust.edu/">Ahsanullah University of Science &amp; Technology</a>
+    </div>
+    <div id="wrapper">
+        <h1>Longest Common Subsequence</h1><hr />
+		<p>Longest Common Subsequence is the problem of finding the longest common subsequence of two sequences of items.A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous. For example, in the string &quot;abcdefg&quot;, &quot;abc&quot;, &quot;abg&quot;, &quot;bdf&quot;, &quot;aeg&quot; are all subsequences.</p>
+		
+		<h2>Example</h2><hr />
+		<p>LCS for input Sequences &quot;ABCDGH&quot; and &quot;AEDFHR&quot; is &quot;ADH&quot; of length 3.<br />LCS for input Sequences &quot;AGGTAB&quot; and &quot;GXTXAYB&quot; is &quot;GTAB&quot; of length 4.</p>
+
+		<h2>Naive Solution</h2><hr />
+		<p>A naive exponential algorithm is to notice that a string of length n has O(2<sup>n</sup>) different subsequences, so we can take the shorter string, and test each of its subsequences for presence in the other string, greedily.</p>
+
+		<h2>Recursive Solution</h2><hr />
+		<p>We can try to solve the problem in terms of smaller subproblems. We are given two strings x and y, of length n and m respectively. We solve the problem of finding the longest common subsequence of x = x1...n and y = y1...m by taking the best of the three possible cases:</p>
+		<ul>
+			<li>The longest common subsequence of the strings x<sub>1...n-1</sub> and y<sub>1...m</sub></li>
+			<li>The longest common subsequence of the strings x<sub>1...n</sub> and y<sub>1...m-1</sub></li>
+			<li>If xn is the same as ym, the longest common subsequence of the strings x<sub>1...n-1</sub> and y<sub>1...m-1</sub>, followed by the common last character.</li>
+		</ul>
+		<p>The base case: when one of the sequences is empty, their only common subsequence is the empty sequence of length 0.</p>
+
+		
+		<h2>Dynamic Programming</h2><hr />
+		<p>Obviously, this is still not very efficient. But because the subproblems are repeated, we can use memoization. An even more (slightly) efficient way, which avoids the overhead of function calls, is to order the computation in such a way that whenever the results of subproblems are needed, they have already been computed, and can simply be looked up in a table. This is called Dynamic Programming.</p>
+		<p>In this case, we find lcs(x<sub>1..i</sub>, y<sub>1..j</sub>) for every i and j, starting from smaller ones, storing the results in an array at index (i,j) as we go along.</p>
+		
+		<h2>Pesudo Code</h2><hr />
+<pre class="code">
+LCS_Length(X, Y):
+	m <span style="font-size:28pt;">&#x2190</span> length(X)
+	n <span style="font-size:28pt;">&#x2190</span> length(Y)
+	for i <span style="font-size:28pt;">&#x2190</span> 1 to m:
+		c[i, 0] <span style="font-size:28pt;">&#x2190</span> 0
+	for j<span style="font-size:28pt;">&#x2190</span> 0 to n:
+		c[0, j] <span style="font-size:28pt;">&#x2190</span> 0
+	for i <span style="font-size:28pt;">&#x2190</span> 1 to m:
+		for j <span style="font-size:28pt;">&#x2190</span> 1 to n:
+		if x[i] &#61;&#61; y[j]:
+			c[i, j] <span style="font-size:28pt;">&#x2190</span> c[i - 1, j - 1] + 1
+			b[i, j] <span style="font-size:28pt;">&#x2190</span> &quot;<span style="font-size:18pt;">&#x2196</span>&quot;
+		else if c[i - 1, j] &gt; c[i, j - 1]:
+			c[i, j] <span style="font-size:28pt;">&#x2190</span> c[i - 1, j]
+			b[i, j] <span style="font-size:28pt;">&#x2190</span> &quot;<span style="font-size:18pt;">&#x2191;</span>&quot;
+		else:
+			c[i, j] <span style="font-size:28pt;">&#x2190</span> c[i, j - 1]
+			b[i, j] <span style="font-size:28pt;">&#x2190</span> &quot;<span style="font-size:18pt;">&#x2190</span>&quot;
+	return c[m][n]
+
+Back_Track(C, X, Y, i, j):
+    if i&#61;&#61;0 or j&#61;&#61;0:
+        return &quot;&quot;
+    else if  X[i]&#61;&#61;Y[j]:
+        return Back_Track(C, X, Y, i-1, j-1) + X[i]
+    else:
+	if C[i,j-1] &gt; C[i-1,j]:
+		return Back_Track(C, X, Y, i, j-1)
+	else:
+		return Back_Track(C, X, Y, i-1, j)
+</pre>
+
+
+		<h2>Time Complexity</h2><hr />
+		<p>For the case of two sequences of n and m elements, the running time of the dynamic programming approach is O(n × m).</p>
+
+		<h2>Simulator</h2><hr />
+        <applet code="LCS.class" width="1050" height="500" style="margin:10px"></applet>
+        <ul class="navMenu">
+            <li><a href="">Previous Topic:</a></li>
+            <li><a href="index.html">Back to the Table of Contents</a></li>
+            <li><a href="">Next Topic</a></li>
+        </ul>
+    </div>
+    <div id="footer">
+        &copy;2012 by <a href="http://www.aust.edu/">Aust</a>. All Rights Reserved.
+    </div>
+</body>
+</html>

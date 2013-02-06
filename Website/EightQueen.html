@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>8 Queen Problem</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+.label-cell{font-size:14pt; width:30px; height:35px; text-align:center; background-color:#dedede; color:#254117;}
+.black-cell{width:30px; height:35px; background-color:black; color:white; font-size:14pt; text-align:center;}
+.white-cell{width:30px; height:35px; background-color:white; color:black; font-size:14pt; text-align:center;}
+#solution{ overflow:hidden; }
+#solution #sol-left{ float:left; width:550px; }
+#solution #sol-right{ float:right; }
+</style>
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.aust.edu/">Ahsanullah University of Science &amp; Technology</a>
+    </div>
+    <div id="wrapper">
+        <h1>8 Queen Problem</h1><hr />
+		<p>The 8-queens problem is to place 8 queens on an (8 by 8) chess board such that none of the queens attacks any of the others.</p>
+
+		<h2>Solution</h2><hr />
+		<p>We can solve the 8 Queens problem using Backtracking.</p>
+		<p>Backtracking is kind of solving a problem by trial and error. However, it is a well organized trial and error. We make sure that we never try the same thing twice. We also make sure that if the problem is finite we will eventually try all possibilities (assuming there is enough computing power to try all possibilities).</p>
+		
+		<div id="solution">
+			<div id="sol-left">
+				<p>Basic idea of solution:</p>
+				<ul>
+					<li>Start with one queen in the first column, first row.</li>
+					<li>Start with another queen in the second column, first row</li>
+					<li>Go down with the second queen until you reach a permissible situation.</li>
+					<li>Advance to the next column, first row, and do the same thing.</li>
+					<li>If you cannot find a permissible situation in one column and reach the bottom of it, then you have to go back to the previous column and move one position down there. (This is the backtracking step.)</li>
+					<li>If you reach a permissible situation in the last column of the board, then the problem is solved.</li>
+					<li>If you have to backtrack BEFORE the first column, then the problem is not solvable.</li>
+				</ul>
+			</div>
+			<div id="sol-right"><img src="http://upload.wikimedia.org/wikipedia/commons/1/1f/Eight-queens-animation.gif" alt="eight-queen-problem-wikipedia-animation" /></p></div>
+		</div>
+		
+<h2>Pseudo Code</h2><hr />
+<pre class="code">
+isPlaceAble(k, i){
+    for j=1 to k-1
+        if( x[j]=i or (Abs(x[j]-i)==Abs(j-k)) )
+            return false
+    return true
+}
+
+NQueens(k, n){
+    for i=1 to n
+        if( isPlaceAble(k, i) ){
+            x[k] = i
+            if( k==n )
+                print_sol()
+            else
+                NQueens(k+1, n)
+        }
+}
+</pre>
+
+        <ul class="navMenu">
+            <li><a href="">Previous Topic:</a></li>
+            <li><a href="index.html">Back to the Table of Contents</a></li>
+            <li><a href="BinarySearch.html">Next Topic : Binary Search</a></li>
+        </ul>
+    </div>
+    <div id="footer">
+        &copy;2012 by <a href="http://www.aust.edu/">Aust</a>. All Rights Reserved.
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Selection Sort</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.aust.edu/">Ahsanullah University of Science &amp; Technology</a>
+    </div>
+    <div id="wrapper">
+        <h1>Selection Sort</h1><hr />
+		<p>Selection sort is the most conceptually simple of all the sorting algorithms. It works by selecting the smallest (or largest, if you want to sort from big to small) element of the array and placing it at the head of the array. Then the process is repeated for the remainder of the array; the next largest element is selected and put into the next slot, and so on down the line.</p>
+		
+		<h2>Example</h2><hr />
+		<p>For example, consider the following array, shown with array elements in sequence</p>
+		<ul class="row">
+			<li style="background-color:red; color:white; border: 1px solid #254117;">23</li>
+			<li style="background-color: #e3e3e3; border: 1px solid #254117;">78</li>
+			<li style="background-color: #e3e3e3; border: 1px solid #254117;">45</li>
+			<li style="background-color:red; color:white; border: 1px solid #254117;">8</li>
+			<li style="background-color: #e3e3e3; border: 1px solid #254117;">32</li>
+			<li style="background-color: #e3e3e3; border: 1px solid #254117;">56</li>
+		</ul><br />
+		<p>The leftmost element is at index 1, and the rightmost element is at the highest array index, in our case, 6 (the effective size of our array is 6). The smallest element in this effective array (index 1-6) is at index 4. We have shown the smallest element and the one at the smallest index in  red block with white text. We then swap the element at index 4 with that at index 1. The result is:</p>
+		<ul class="row">
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">8</li>
+			<li style="background-color:red; color:white; border: 1px solid #254117;">78</li>
+			<li style="background-color: #e3e3e3; border: 1px solid #254117;">45</li>
+			<li style="background-color:red; color:white; border: 1px solid #254117;">23</li>
+			<li style="background-color: #e3e3e3; border: 1px solid #254117;">32</li>
+			<li style="background-color: #e3e3e3; border: 1px solid #254117;">56</li>
+		</ul><br />
+		
+		<p>We reduce the effective size of the array to 5, making the smallest index in the effective array now 2. The smallest element in this effective array (index 2-6) is at index 4, so we swap elements at index 2 and 4 (red block with white text):</p>	
+		<ul class="row">
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">8</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">23</li>
+			<li style="background-color:red; color:white; border: 1px solid #254117;">45</li>
+			<li style="background-color: #e3e3e3; border: 1px solid #254117;">78</li>
+			<li style="background-color:red; color:white; border: 1px solid #254117;">32</li>
+			<li style="background-color: #e3e3e3; border: 1px solid #254117;">56</li>
+		</ul><br />
+		
+		<p>The smallest element in this effective array (index 3-6) is at index 5, so we swap elements at index 3 and 5 (red block with white text):</p>
+		<ul class="row">
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">8</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">23</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">32</li>
+			<li style="background-color:red; color:white; border: 1px solid #254117;">78</li>
+			<li style="background-color:red; color:white; border: 1px solid #254117;">45</li>
+			<li style="background-color: #e3e3e3; border: 1px solid #254117;">56</li>
+		</ul><br />
+		
+		<p>The smallest element in this effective array (index 4-6) is at index 5, so we swap elements at index 4 and 5 (red block with white text):</p>
+		<ul class="row">
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">8</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">23</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">32</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">45</li>
+			<li style="background-color:red; color:white; border: 1px solid #254117;">78</li>
+			<li style="background-color:red; color:white; border: 1px solid #254117;">56</li>
+		</ul><br/>
+		
+		<p>The smallest element in this effective array (index 5-6) is at index 6, so we swap elements at index 5 and 6 (red block with white text):</p>
+		<ul class="row">
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">8</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">23</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">32</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">45</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">56</li>
+			<li style="background-color: #222; color:#fff; border: 1px solid #254117;">78</li>
+		</ul>			
+		<p>The entire array is now sorted.</p>
+		
+		<h2>Pseudo Code</h2><hr />
+		<pre class="code">
+for i <span style="font-size:28pt;">&#x2190</span> 1 to n - 1
+	k <span style="font-size:28pt;">&#x2190</span> i
+	for j <span style="font-size:28pt;">&#x2190</span> i + 1 to n
+		if A[j] &lt; A[k] then 
+			k <span style="font-size:28pt;">&#x2190</span> j
+	A[i] <span style="font-size:28pt;">&#x2194</span> A[k]
+		</pre>
+		
+		<h2>Time Complexity</h2><hr />
+		<p>In general, we compare keys and move items (or exchange items) in a sorting algorithm (which uses key comparisons). So, to analyze a sorting algorithm we should count the number of key comparisons and the number of moves.</p>
+		<p>In selectionSort function, the outer for loop executes n-1 times. We invoke swap function once at each iteration. </p>
+		<p>The inner for loop executes the size of the unsorted part minus 1 (from 1 to n-1), and in each iteration we make one key comparison.</p>
+		<p>Therefore, numbers of key comparisons = 1+2+...+n-1 = n*(n-1)/2.</p>
+		<p>So, Selection sort is <strong>O(n<sup>2</sup>)</strong>. The best case, the worst case, and the average case of the selection sort algorithm are same.</p>
+		
+		<h2>Simulator</h2><hr />
+		<p style="font-style:italic;font-size:10pt;">Enter your numbers you want to sort in the &quot;Array&quot; TextField area, separate each 
+			number with a comma(&quot;,&quot;). After entering these numbers press the &quot;Start&quot; button. You can put at most 25 numbers. 
+			Now the program is set sort your numbers.</p>
+		<p style="font-style:italic;font-size:10pt;">To see each step of bubble sort one by one press the &quot;Next&quot; button, to see the 
+			whole algorithm all at once press the &quot;Auto Play&quot; button so that the program will run the whole algorithm automatically.</p>
+        <applet code="SelectionSort.class" width="1050" height="125" style="margin:10px"></applet>
+        <ul class="navMenu">
+            <li><a href="InsertionSort.html">Previous Topic: Insertion Sort</a></li>
+            <li><a href="index.html">Back to the Table of Contents</a></li>
+            <li><a href="">Next Topic</a></li>
+        </ul>
+    </div>
+    <div id="footer">
+        &copy;2012 by <a href="http://www.aust.edu/">Aust</a>. All Rights Reserved.
+    </div>
+</body>
+</html>

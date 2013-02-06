@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Floyd Warshall</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.aust.edu/">Ahsanullah University of Science &amp; Technology</a>
+    </div>
+    <div id="wrapper">
+        <h1>Floyd Warshall</h1><hr />
+		<p>The Floyd-Warshall Algorithm is an efficient algorithm to find all-pairs shortest paths on a graph. That is, it is guaranteed to find the shortest path between every pair of vertices in a graph. The graph may have negative weight edges, but no negative weight cycles (for then the shortest path is undefined). </p>
+		<p>This algorithm can also be used to detect the presence of negative cycles—the graph has one if at the end of the algorithm, the distance from a vertex v to itself is negative.</p>
+
+		<h2>Algorithm</h2><hr />
+		<p>The Floyd-Warshall Algorithm is an application of Dynamic Programming.</p>
+		<p>Let dist(k,i,j) be the the length of the shortest path from i and j that uses only the vertices V<sub>1</sub>, V<sub>2</sub> ......... V<sub>k</sub> as intermediate vertices. The following recurrence:</p>
+		<ul>
+			<li>k = 0 is our base case - dist(0,i,j) is the length of the edge from vertex i to vertex j if it exists, and &#8734; otherwise.</li>
+			<li>dist(k,i,j) = min(dist(k - 1,i,k) + dist(k - 1,k,j),dist(k - 1,i,j)): For any vertex i and vertex j, the length of the shortest path from i to j with all intermediate vertices &lt;=k simply does not involve the vertex k at all (in which case it is the same as dist(k - 1,i,j)), or that the shorter path goes through vertex k, so the shortest path between vertex i and vertex j is the combination of the path from vertex i to k, and from vertex k to j.</p>
+		</ul>
+		
+<h2>Pseudo Code</h2><hr />
+<pre class="code">
+for i = 1 to N
+   for j = 1 to N
+      if there is an edge from i to j
+         dist[0][i][j] = the length of the edge from i to j
+      else
+         dist[0][i][j] = INFINITY
+  
+for k = 1 to N
+   for i = 1 to N
+      for j = 1 to N
+         dist[k][i][j] = min(dist[k-1][i][j], dist[k-1][i][k] + dist[k-1][k][j])
+</pre>
+		
+		<h2>Time Complexity</h2><hr />
+		<p>This algorithm takes T(N<sup>3</sup>) time and T(N<sup>3</sup>) space, and has the distinct advantage of hiding a small constant in its behavior, since very little work is done in the innermost loop.</p>
+		
+		<h2>Simulator</h2><hr />
+		<applet code="FloydWarshall.class" width="1000" height="500" style="margin:10px"></applet>
+        <ul class="navMenu">
+            <li><a href="">Previous Topic:</a></li>
+            <li><a href="index.html">Back to the Table of Contents</a></li>
+            <li><a href="">Next Topic : </a></li>
+        </ul>
+    </div>
+    <div id="footer">
+        &copy;2012 by <a href="http://www.aust.edu/">Aust</a>. All Rights Reserved.
+    </div>
+</body>
+</html>

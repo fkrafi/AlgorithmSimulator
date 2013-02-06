@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Linear Search</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.aust.edu/">Ahsanullah University of Science &amp; Technology</a>
+    </div>
+    <div id="wrapper">
+        <h1>Linear Search</h1><hr />
+		<p>A linear search is the most basic of search algorithm you can have. A linear search sequentially moves through your collection (or data structure) looking for a matching value.</p>
+
+		<h2>Example</h2><hr />
+		<p>For example, consider the following array, shown with array elements in sequence:</p>
+		<ul class="row">
+			<li style="border: 1px solid #254117;">7</li>
+			<li style="border: 1px solid #254117;">3</li>
+			<li style="border: 1px solid #254117;">6</li>
+			<li style="border: 1px solid #254117;">1</li>
+			<li style="border: 1px solid #254117;">0</li>
+		</ul><br />
+		
+		<h3>Now, lets try to find 6</h3>
+		<ul>
+			<li>
+				<strong>Iteration 1 (7 &#33;&#61; 6):</strong>
+				<ul class="row">
+					<li style="background-color:red; color:white; border: 1px solid #254117;">7</li>
+					<li style="border: 1px solid #254117;">3</li>
+					<li style="border: 1px solid #254117;">6</li>
+					<li style="border: 1px solid #254117;">1</li>
+					<li style="border: 1px solid #254117;">0</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Iteration 2 (3 &#33;&#61; 6):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">7</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">3</li>
+					<li style="border: 1px solid #254117;">6</li>
+					<li style="border: 1px solid #254117;">1</li>
+					<li style="border: 1px solid #254117;">0</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Iteration 3 (6 &#61;&#61; 6):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">7</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">3</li>
+					<li style="background-color:green; color:white; border: 1px solid #254117;">6</li>
+					<li style="border: 1px solid #254117;">1</li>
+					<li style="border: 1px solid #254117;">0</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<h3>Now, lets try to find 5</h3>
+		<ul>
+			<li>
+				<strong>Iteration 1 (7 &#33;&#61; 5):</strong>
+				<ul class="row">
+					<li style="background-color:red; color:white; border: 1px solid #254117;">7</li>
+					<li style="border: 1px solid #254117;">3</li>
+					<li style="border: 1px solid #254117;">6</li>
+					<li style="border: 1px solid #254117;">1</li>
+					<li style="border: 1px solid #254117;">0</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Iteration 2 (3 &#33;&#61; 5):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">7</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">3</li>
+					<li style="border: 1px solid #254117;">6</li>
+					<li style="border: 1px solid #254117;">1</li>
+					<li style="border: 1px solid #254117;">0</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Iteration 3 (6 &#33;&#61; 5):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">7</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">3</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">6</li>
+					<li style="border: 1px solid #254117;">1</li>
+					<li style="border: 1px solid #254117;">0</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Iteration 4 (1 &#33;&#61; 5):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">7</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">3</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">6</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">1</li>
+					<li style="border: 1px solid #254117;">0</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Iteration 3 (0 &#33;&#61; 5):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">7</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">3</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">6</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">1</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">0</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Searched value is absent:</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">7</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">3</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">6</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">1</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">0</li>
+				</ul>
+			</li>
+		</ul>
+		
+<h2>Pseudo Code</h2><hr />
+<pre class="code">
+LinearSearch(A[1..N], value) {
+	for i <span style="font-size:28pt;">&#x2190</span> 1 to N
+		if A[i] &#61;&#61; value then
+			return i
+	return not_found
+}
+</pre>
+		
+		<h2>Time Complexity</h2><hr />
+		<p>Binary search algorithm time complexity is O(log<sub>2</sub>(n)).</p>
+		
+		<h2>Simulator</h2><hr />
+		<p style="font-style:italic;font-size:10pt;">Enter your numbers you want to search form in the &quot;array&quot; TextField area,  
+			separate each number with a comma(&quot;,&quot;).enter the number you want to search in the &quot;search&quot; textField area. 
+			After entering these numbers press the &quot;start&quot; button. You can put at most 25 numbers. Now the program is set search 
+			your number.</p>
+		<p style="font-style:italic;font-size:10pt;">To see each step of sequential search one by one press the &quot;next&quot; button, to see the whole algorithm all at once press 
+			the &quot;autoPlay&quot; button so that the program will run the whole algorithm automatically.</p>
+		<p style="font-style:italic;font-size:10pt;">If your desired number is found a pop up screen will appear saying &quot;Found&quot;. If not another pop up screen will appear 
+			saying &quot;Not Found&quot;.</p>
+</p>
+		<applet code="LinearSearch.class" width="1050" height="125" style="margin:10px"></applet>
+        <ul class="navMenu">
+            <li><a href="">Previous Topic:</a></li>
+            <li><a href="index.html">Back to the Table of Contents</a></li>
+            <li><a href="BinarySearch.html">Next Topic : Binary Search</a></li>
+        </ul>
+    </div>
+    <div id="footer">
+        &copy;2012 by <a href="http://www.aust.edu/">Aust</a>. All Rights Reserved.
+    </div>
+</body>
+</html>

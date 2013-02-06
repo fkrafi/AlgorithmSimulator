@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Binary Search</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.aust.edu/">Ahsanullah University of Science &amp; Technology</a>
+    </div>
+    <div id="wrapper">
+        <h1>Binary Search</h1><hr />
+		<p>Search a sorted array by repeatedly dividing the search interval in half. Begin with an interval covering the whole array. If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half. Otherwise narrow it to the upper half. Repeatedly check until the value is found or the interval is empty.</p>
+
+		<h2>Example</h2><hr />
+		<p>For example, consider the following array, shown with array elements in sequence:</p>
+		<ul class="row">
+			<li style="border: 1px solid #254117;">-1</li>
+			<li style="border: 1px solid #254117;">5</li>
+			<li style="border: 1px solid #254117;">6</li>
+			<li style="border: 1px solid #254117;">18</li>
+			<li style="border: 1px solid #254117;">19</li>
+			<li style="border: 1px solid #254117;">25</li>
+			<li style="border: 1px solid #254117;">46</li>
+			<li style="border: 1px solid #254117;">78</li>
+			<li style="border: 1px solid #254117;">102</li>
+			<li style="border: 1px solid #254117;">114</li>
+		</ul><br />
+		
+		<h3>Now, lets try to find 6</h3>
+		<ul>
+			<li>
+				<strong>Step 1 (middle element is 19 &#62; 6):</strong>
+				<ul class="row">
+					<li style="border: 1px solid #254117;">-1</li>
+					<li style="border: 1px solid #254117;">5</li>
+					<li style="border: 1px solid #254117;">6</li>
+					<li style="border: 1px solid #254117;">18</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">19</li>
+					<li style="border: 1px solid #254117;">25</li>
+					<li style="border: 1px solid #254117;">46</li>
+					<li style="border: 1px solid #254117;">78</li>
+					<li style="border: 1px solid #254117;">102</li>
+					<li style="border: 1px solid #254117;">114</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Step 2 (middle element is 5 &#60 6):</strong>
+				<ul class="row">
+					<li style="border: 1px solid #254117;">-1</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+					<li style="border: 1px solid #254117;">6</li>
+					<li style="border: 1px solid #254117;">18</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">19</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">25</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">46</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">78</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">102</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">114</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Step 3 (middle element is 6 &#61;&#61; 6):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">-1</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">5</li>
+					<li style="background-color:green; color:white; border: 1px solid #254117;">6</li>
+					<li style="border: 1px solid #254117;">18</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">19</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">25</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">46</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">78</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">102</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">114</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<h3>Now, lets try to find 103</h3>
+		<ul>
+			<li>
+				<strong>Step 1 (middle element is 19 &#60; 103):</strong>
+				<ul class="row">
+					<li style="border: 1px solid #254117;">-1</li>
+					<li style="border: 1px solid #254117;">5</li>
+					<li style="border: 1px solid #254117;">6</li>
+					<li style="border: 1px solid #254117;">18</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">19</li>
+					<li style="border: 1px solid #254117;">25</li>
+					<li style="border: 1px solid #254117;">46</li>
+					<li style="border: 1px solid #254117;">78</li>
+					<li style="border: 1px solid #254117;">102</li>
+					<li style="border: 1px solid #254117;">114</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Step 2 (middle element is 78 &#60; 103):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">-1</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">5</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">6</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">18</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">19</li>
+					<li style="border: 1px solid #254117;">25</li>
+					<li style="border: 1px solid #254117;">46</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">78</li>
+					<li style="border: 1px solid #254117;">102</li>
+					<li style="border: 1px solid #254117;">114</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Step 3 (middle element is 102 &#60; 103):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">-1</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">5</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">6</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">18</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">19</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">25</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">46</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">78</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">102</li>
+					<li style="border: 1px solid #254117;">114</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Step 4 (middle element is 114 &#62; 103):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">-1</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">5</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">6</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">18</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">19</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">25</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">46</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">78</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">102</li>
+					<li style="background-color:red; color:white; border: 1px solid #254117;">114</li>
+				</ul>
+			</li>
+			
+			<li>
+				<strong>Step 5 (searched value is absent):</strong>
+				<ul class="row">
+					<li style="color:#cccccc; border: 1px solid #cccccc;">-1</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">5</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">6</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">18</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">19</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">25</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">46</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">78</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">102</li>
+					<li style="color:#cccccc; border: 1px solid #cccccc;">114</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<h2>Pseudo Code</h2><hr />
+<pre class="code">
+BinarySearch(A[0..N-1], value, low, high) {
+	if (high &#60 low)
+		return not_found
+	mid = (low + high) / 2
+	if (A[mid] &#62; value)
+		return BinarySearch(A, value, low, mid-1)
+	else if (A[mid] &#60; value)
+		return BinarySearch(A, value, mid+1, high)
+	else
+		return mid
+}
+</pre>
+		
+		<h2>Time Complexity</h2><hr />
+		<p>Binary search algorithm time complexity is O(log<sub>2</sub>(n)).</p>
+		
+		<h2>Simulator</h2><hr />
+		<p style="font-style:italic;font-size:10pt;">Enter your numbers you want to search form in the &quot;Array&quot; TextField area,  
+			separate each number with a comma(&quot;,&quot;).enter the number you want to search in the &quot;Search&quot; textField area. 
+			After entering these numbers press the &quot;Start&quot; button. You can put at most 25 numbers. Now the program is set search 
+			your number.</p>
+		<p style="font-style:italic;font-size:10pt;">To see each step of binary search one by one press the &quot;Next&quot; button, to see 
+			the whole algorithm all at once press the &quot;Auto Play&quot; button so that the program will run the whole algorithm automatically.</p>
+		<p style="font-style:italic;font-size:10pt;">If your desired number is found a pop up screen will appear saying &quot;Found&quot;. 
+			If not another pop up screen will appear saying &quot;Not Found&quot;.</p>
+
+        <applet code="BinarySearch.class" width="1000" height="125" style="margin:10px"></applet>
+        <ul class="navMenu">
+            <li><a href="LinearSearch.html">Previous Topic: Linear Search</a></li>
+            <li><a href="index.html">Back to the Table of Contents</a></li>
+            <li><a href="">Next Topic</a></li>
+        </ul>
+    </div>
+    <div id="footer">
+        &copy;2012 by <a href="http://www.aust.edu/">Aust</a>. All Rights Reserved.
+    </div>
+</body>
+</html>

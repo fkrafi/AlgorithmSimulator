@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Quick Sort</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+.array{font-size: 14pt; text-align:center;}
+</style>
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.aust.edu/">Ahsanullah University of Science &amp; Technology</a>
+    </div>
+    <div id="wrapper">
+        <h1>Quick Sort</h1><hr />
+		<p>Quicksort is a divide and conquer algorithm. Quicksort first divides a large list into two smaller sub-lists: the low elements and the high elements. Quicksort can then recursively sort the sub-lists. The steps are:</p>
+        <ol>
+            <li>Pick an element, called a pivot, from the list.</li>
+            <li>Reorder the list so that all elements with values less than the pivot come before the pivot, while all elements with values greater than the pivot come after it (equal values can go either way). After this partitioning, the pivot is in its final position. This is called the partition operation.</li>
+            <li>Recursively sort the sub-list of lesser elements and the sub-list of greater elements.</li>
+        </ol>
+        
+
+<h2>Pseudo Code</h2><hr />
+<pre class="code">
+QuickSort(A, p, r){
+    if p&lt;r
+        q = Partition(A, p, r)
+        QuickSort(A, p, q-1)
+        QuickSort(A, q+1, r)
+}
+
+Partition(A, p, r){
+    x = A[r]
+    i = p-1
+    for j = p:r-1
+        if A[j] <span style="font-size:16pt;">&#x2264</span> x
+            i = i + 1
+            swap(A[i], A[j])
+    swap(A[i+1], A[r)
+    return i+1
+}
+</pre>
+		
+		<h2>Time Complexity</h2><hr />
+		<table cellspacing="0" cellpadding="5px" border="1">
+            <tr>
+                <td>Worst case performance</td>
+                <td>O(n<sup>2</sup>)</td>
+            </tr>
+            <tr>
+                <td>Best case performance</td>
+                <td>O(n log n)</td>
+            </tr>
+            <tr>
+                <td>Average case performance</td>
+                <td>O(n log n)</td>
+            </tr>
+        </table>
+		<h2>Simulator</h2><hr />
+		<p style="font-style:italic;font-size:10pt;">Enter your numbers you want to sort in the &quot;Array&quot; TextField area, separate each 
+			number with a comma(&quot;,&quot;). After entering these numbers press the &quot;Start&quot; button. You can put at most 25 numbers. 
+			Now the program is set sort your numbers.</p>
+		<p style="font-style:italic;font-size:10pt;">To see each step of bubble sort one by one press the &quot;Next&quot; button, to see the 
+			whole algorithm all at once press the &quot;Auto Play&quot; button so that the program will run the whole algorithm automatically.</p>
+        <applet code="SelectionSort.class" width="1050" height="125" style="margin:10px"></applet>
+        <ul class="navMenu">
+            <li><a href="InsertionSort.html">Previous Topic: Insertion Sort</a></li>
+            <li><a href="index.html">Back to the Table of Contents</a></li>
+            <li><a href="">Next Topic</a></li>
+        </ul>
+    </div>
+    <div id="footer">
+        &copy;2012 by <a href="http://www.aust.edu/">Aust</a>. All Rights Reserved.
+    </div>
+</body>
+</html>

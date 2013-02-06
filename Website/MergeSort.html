@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Merge Sort</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.aust.edu/">Ahsanullah University of Science &amp; Technology</a>
+    </div>
+    <div id="wrapper">
+        <h1>Merge Sort</h1><hr />
+		<p>
+            The sorting algorithm Mergesort produces a sorted sequence by sorting its 
+            two halves and merging them. Mergesort works as follows :
+        </p>
+        <ol>
+            <li>If the input sequence has fewer than two elements, return.</li>
+            <li>Partition the input sequence into two halves.</li>
+            <li>Sort the two subsequences using the same algorithm.</li>
+            <li>Merge the two sorted subsequences to form the output sequence.</li>
+        </ol>
+        
+		<h2>Example</h2><hr />
+		<img src="http://upload.wikimedia.org/wikipedia/commons/e/e6/Merge_sort_algorithm_diagram.svg" />
+		
+<h2>Pseudo Code</h2><hr />
+<pre class="code">
+Merge(A, p, q, r){
+    n1 = q-p+1
+    n2 = r-q
+    for i=1:n1
+        L[i] = A[p+i-1]
+    for j=1:n2
+        R[j] = A[q+j]
+    L[n1+1] = INF
+    R[n2+1] = INF
+    i = 1
+    j = 1
+    for j=p:r
+        if L[i] &lt; R[j]
+            A[k] = L[i]
+            i = i + 1
+        else
+            A[k] = R[j]
+            j = j + 1
+}
+
+MergeSort(A, p, r){
+    q = (p+r)/2
+    MergeSort(A, p, q)
+    MergeSort(A, q+1, r)
+    Merge(A, p, q, r)
+}
+</pre>
+		
+		<h2>Time Complexity</h2><hr />
+		<p>Time complexity of mergesort is <b>O(n log n)</b>.</p>
+		<h2>Simulator</h2><hr />
+		<p style="font-style:italic;font-size:10pt;">Enter your numbers you want to sort in the &quot;Array&quot; TextField area, separate each 
+			number with a comma(&quot;,&quot;). After entering these numbers press the &quot;Start&quot; button. You can put at most 25 numbers. 
+			Now the program is set sort your numbers.</p>
+		<p style="font-style:italic;font-size:10pt;">To see each step of bubble sort one by one press the &quot;Next&quot; button, to see the 
+			whole algorithm all at once press the &quot;Auto Play&quot; button so that the program will run the whole algorithm automatically.</p>
+        <applet code="SelectionSort.class" width="1050" height="125" style="margin:10px"></applet>
+        <ul class="navMenu">
+            <li><a href="InsertionSort.html">Previous Topic: Insertion Sort</a></li>
+            <li><a href="index.html">Back to the Table of Contents</a></li>
+            <li><a href="">Next Topic</a></li>
+        </ul>
+    </div>
+    <div id="footer">
+        &copy;2012 by <a href="http://www.aust.edu/">Aust</a>. All Rights Reserved.
+    </div>
+</body>
+</html>

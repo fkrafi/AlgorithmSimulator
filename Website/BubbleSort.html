@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Bubble Sort</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.aust.edu/">Ahsanullah University of Science &amp; Technology</a>
+    </div>
+    <div id="wrapper">
+        <h1>Bubble Sort</h1><hr />
+		<p>
+            The bubble sort is generally considered to be the simplest sorting algorithm. 
+            Because of its simplicity and ease of visualizatio
+            The bubble sort works by passing sequentially over a list, 
+            comparing each value to the one immediately after it. If 
+            the first value is greater than the second, their positions 
+            are switched. Over a number of passes, at most equal to the 
+            number of elements in the list, all of the values drift into 
+            their correct positions.
+        </p>
+		
+		<h2>Example</h2><hr />
+		<p>Let us take the array of numbers [5 1 4 2 8], and sort the array from lowest number to greatest number using bubble sort. In each step, elements written in bold are being compared. Three passes will be required.</p>
+        
+        <h3>First Pass:</h3><hr />
+        <table cellspacing="0" cellpadding="2px" border="1" width="100%">
+            <tr>
+                <td width="350px">
+                    <ul class="row">
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td width="350px">
+                    <ul class="row">
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>Here, algorithm compares the first two elements, and swaps since 5 &gt; 1.</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>Swap since 5 &gt; 4</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">2</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>Swap since 5 &gt; 2</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>Now, since these elements are already in order (8 &gt; 5), algorithm does not swap them.</td>
+            </tr>
+        </table>
+        
+        <h3>Second Pass:</h3><hr />
+        <table cellspacing="0" cellpadding="2px" border="1" width="100%">
+            <tr>
+                <td width="350px">
+                    <ul class="row">
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td width="350px">
+                    <ul class="row">
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">2</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>Swap since 4 &gt; 2</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <p>Now, the array is already sorted, but our algorithm does not know if it is completed. The algorithm needs one whole pass without any swap to know it is sorted.</p>
+        
+        
+        <h3>Third Pass:</h3><hr />
+        <table cellspacing="0" cellpadding="2px" border="1" width="100%">
+            <tr>
+                <td width="350px">
+                    <ul class="row">
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td width="350px">
+                    <ul class="row">
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            
+            
+            
+            <tr>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">2</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">2</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            
+            
+            <tr>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="row">
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">1</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">2</li>
+                        <li style="background-color: #e3e3e3; border: 1px solid #254117;">4</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">5</li>
+                        <li style="background-color:red; color:white; border: 1px solid #254117;">8</li>
+                    </ul>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        
+        
+<h2>Pseudo Code</h2><hr />
+<pre class="code">
+for i=1:length(A)
+    for j=length(A):i+1
+        if A[j] &lt; A[j-1], 
+            swap(A[j], A[j-1])
+</pre>
+		
+		<h2>Time Complexity</h2><hr />
+		<p>Time complexity of bubble sort is <strong>O(n<sup>2</sup>)</strong>.</p>
+		
+		<h2>Simulator</h2><hr />
+		<p style="font-style:italic;font-size:10pt;">Enter your numbers you want to sort in the &quot;Array&quot; TextField area, separate each 
+			number with a comma(&quot;,&quot;). After entering these numbers press the &quot;Start&quot; button. You can put at most 25 numbers. 
+			Now the program is set sort your numbers.</p>
+		<p style="font-style:italic;font-size:10pt;">To see each step of bubble sort one by one press the &quot;Next&quot; button, to see the 
+			whole algorithm all at once press the &quot;Auto Play&quot; button so that the program will run the whole algorithm automatically.</p>
+        <applet code="BubbleSort.class" width="950" height="125" style="margin:10px"></applet>
+        <ul class="navMenu">
+            <li><a href="InsertionSort.html">Previous Topic: Insertion Sort</a></li>
+            <li><a href="index.html">Back to the Table of Contents</a></li>
+            <li><a href="">Next Topic</a></li>
+        </ul>
+    </div>
+    <div id="footer">
+        &copy;2012 by <a href="http://www.aust.edu/">Aust</a>. All Rights Reserved.
+    </div>
+</body>
+</html>
